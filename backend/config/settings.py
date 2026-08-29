@@ -5,6 +5,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "unsafe-development-key")
 DEBUG = os.environ.get("DJANGO_DEBUG", "0") == "1"
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
 
 ALLOWED_HOSTS = [
     x.strip()
