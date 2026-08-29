@@ -5,14 +5,8 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
-# ViennaRNA and RNAstructure belong in this worker image.
-# They are intentionally not installed in the first infrastructure skeleton.
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-       ca-certificates \
-       curl \
-       libpq5 \
-    && rm -rf /var/lib/apt/lists/*
+# ViennaRNA and RNAstructure will be installed here
+# in a later project stage.
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
