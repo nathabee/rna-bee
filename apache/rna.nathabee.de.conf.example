@@ -1,0 +1,19 @@
+# EXAMPLE ONLY.
+# This file belongs in the HOST Apache configuration, not inside Docker.
+# Installing/enabling it requires your sudo-capable VPS account.
+
+<VirtualHost *:80>
+    ServerName rna.nathabee.de
+
+    ProxyPreserveHost On
+
+    # Django API must be matched before the catch-all WordPress rule.
+    ProxyPass        /api/ http://127.0.0.1:8000/api/
+    ProxyPassReverse /api/ http://127.0.0.1:8000/api/
+
+    # WordPress
+    ProxyPass        / http://127.0.0.1:8080/
+    ProxyPassReverse / http://127.0.0.1:8080/
+</VirtualHost>
+
+# Production HTTPS/Let's Encrypt configuration should be added on the VPS.
