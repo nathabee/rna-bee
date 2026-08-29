@@ -67,3 +67,8 @@ The Celery worker image is where ViennaRNA and RNAstructure will be installed la
 ## Current skeleton
 
 The initial skeleton deliberately contains a working infrastructure and a placeholder folding-engine interface. It does **not** yet install ViennaRNA or RNAstructure. That will be the next development step, after the Docker stack is proven healthy on the VPS.
+
+
+## License
+
+![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)
