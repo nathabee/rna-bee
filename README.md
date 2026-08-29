@@ -58,7 +58,9 @@ docker compose config
 
 Build the project images:
 
-```bash
+```bash 
+# to restart if errors
+# docker compose build --no-cache
 docker compose build
 ```
 
