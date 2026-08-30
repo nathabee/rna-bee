@@ -5,8 +5,8 @@ This document describes how to deploy RNA Bee on a Linux VPS with Docker Compose
 ## Public URLs
 
 ```text
-https://rna-bee.nathabee.de/
-https://rna-bee.nathabee.de/api/
+https://rna.nathabee.de/
+https://rna.nathabee.de/api/
 ```
 
 Routing:
@@ -123,14 +123,14 @@ sudo a2enmod ssl
 Create:
 
 ```bash
-sudo nano /etc/apache2/sites-available/rna-bee.nathabee.de.conf
+sudo nano /etc/apache2/sites-available/rna.nathabee.de.conf
 ```
 
 Configuration:
 
 ```apache
 <VirtualHost *:80>
-    ServerName rna-bee.nathabee.de
+    ServerName rna.nathabee.de
 
     ProxyPreserveHost On
     ProxyRequests Off
@@ -149,7 +149,7 @@ Configuration:
 Enable and reload:
 
 ```bash
-sudo a2ensite rna-bee.nathabee.de.conf
+sudo a2ensite rna.nathabee.de.conf
 sudo apachectl configtest
 sudo systemctl reload apache2
 ```
@@ -159,20 +159,20 @@ sudo systemctl reload apache2
 Request and install the certificate:
 
 ```bash
-sudo certbot --apache -d rna-bee.nathabee.de
+sudo certbot --apache -d rna.nathabee.de
 ```
 
 Certbot creates the HTTPS Apache configuration automatically, typically:
 
 ```text
-/etc/apache2/sites-available/rna-bee.nathabee.de-le-ssl.conf
+/etc/apache2/sites-available/rna.nathabee.de-le-ssl.conf
 ```
 
 Verify:
 
 ```bash
-curl https://rna-bee.nathabee.de/api/health/
-curl -I https://rna-bee.nathabee.de/
+curl https://rna.nathabee.de/api/health/
+curl -I https://rna.nathabee.de/
 ```
 
 ## Update deployment

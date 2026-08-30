@@ -70,7 +70,7 @@ docker compose up -d
 soll langfristig ungefähr Folgendes entstehen:
 
 ```text
-https://rna-bee.nathabee.de
+https://rna.nathabee.de
 
 RNA Bee
 ├── Home
