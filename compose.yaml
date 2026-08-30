@@ -26,6 +26,41 @@ services:
       - frontend
       - wordpress_db
 
+  wp-cli:
+    image: wordpress:cli-php8.3
+    depends_on:
+      wordpress-db:
+        condition: service_healthy
+      wordpress:
+        condition: service_started
+    environment:
+      WORDPRESS_DB_HOST: wordpress-db:3306
+      WORDPRESS_DB_NAME: ${MARIADB_DATABASE}
+      WORDPRESS_DB_USER: ${MARIADB_USER}
+      WORDPRESS_DB_PASSWORD: ${MARIADB_PASSWORD}
+
+      WP_URL: ${WP_URL}
+      WP_TITLE: ${WP_TITLE}
+      WP_ADMIN_USER: ${WP_ADMIN_USER}
+      WP_ADMIN_PASSWORD: ${WP_ADMIN_PASSWORD}
+      WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL}
+
+    entrypoint: ["sh"]
+
+    volumes:
+      - wordpress_data:/var/www/html
+      - ./wordpress/themes/rna-bee:/var/www/html/wp-content/themes/rna-bee
+      - ./wordpress/plugins/rna-bee:/var/www/html/wp-content/plugins/rna-bee
+      - ./wordpress/bootstrap:/bootstrap:ro
+
+    networks:
+      - frontend
+      - wordpress_db
+
+    profiles:
+      - tools
+
+
   wordpress-db:
     image: mariadb:11
     restart: unless-stopped
