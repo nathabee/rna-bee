@@ -1,0 +1,46 @@
+html[data-color-mode="dark"] {
+	--wp--preset--color--base: #111318;
+	--wp--preset--color--contrast: #b991e8;
+	--wp--preset--color--accent-1: #191c22;
+	--wp--preset--color--accent-2: #81cfc0;
+	--wp--preset--color--accent-3: #f4f2ee;
+	--wp--preset--color--accent-4: #aebfff;
+	--wp--preset--color--accent-5: #1d2027;
+	--wp--preset--color--accent-6: #ffffff26;
+
+	color-scheme: dark;
+}
+
+html[data-color-mode="light"] {
+	color-scheme: light;
+}
+
+body {
+	transition:
+		background-color 180ms ease,
+		color 180ms ease;
+}
+
+.rna-color-mode-toggle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 2.75rem;
+	min-height: 2.75rem;
+	padding: 0.5rem 0.75rem;
+	border: 1px solid currentColor;
+	border-radius: 999px;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
+}
+
+.rna-color-mode-toggle:hover {
+	opacity: 0.8;
+}
+
+.rna-color-mode-toggle:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 3px;
+}
