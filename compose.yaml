@@ -18,9 +18,10 @@ services:
         }
     ports:
       - "127.0.0.1:${WORDPRESS_HOST_PORT:-8080}:80"
-    volumes:
+    volumes: 
       - wordpress_data:/var/www/html
-      - ./wordpress/plugin/rna-bee:/var/www/html/wp-content/plugins/rna-bee
+      - ./wordpress/themes/rna-bee:/var/www/html/wp-content/themes/rna-bee
+      - ./wordpress/plugins/rna-bee:/var/www/html/wp-content/plugins/rna-bee
     networks:
       - frontend
       - wordpress_db
