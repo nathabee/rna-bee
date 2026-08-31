@@ -260,6 +260,10 @@ else
 fi
 
 
+$WP post meta update "$HOME_ID" _wp_page_template "page-no-title"
+$WP post meta update "$ABOUT_ID" _wp_page_template "page-no-title"
+$WP post meta update "$EXPLORE_ID" _wp_page_template "page-no-title"
+
 #
 # Set static homepage
 #
