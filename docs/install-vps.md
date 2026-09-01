@@ -27,7 +27,7 @@ Example:
 
 ```text
 Type: A
-Name: rna-bee
+Name: rna
 Value: <VPS IPv4>
 ```
 
@@ -35,7 +35,7 @@ Optional IPv6:
 
 ```text
 Type: AAAA
-Name: rna-bee
+Name: rna
 Value: <VPS IPv6>
 ```
 
@@ -182,6 +182,9 @@ cd ~/rna-bee
 git pull
 docker compose build
 docker compose up -d
+
+# omnipotent
+docker compose run --rm wp-cli /bootstrap/bootstrap.sh
 docker compose ps
 ```
 
@@ -189,6 +192,10 @@ If no image rebuild is required:
 
 ```bash
 docker compose up -d
+# WordPress-Bootstrap stehen:
+
+docker compose run --rm wp-cli /bootstrap/bootstrap.sh
+
 ```
 
 ## Logs
