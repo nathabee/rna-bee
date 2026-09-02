@@ -1,18 +1,6 @@
-V0.1.x : initialize 
 
 
-
-TO DO in 0.1.x  infrastructure`:
-
-1. **Stabilize the current platform**
- 
-   * Verify WordPress, `/api/health/`, DRF browsable API, PostgreSQL, Redis, and Celery
-   * Add a short backup note for Docker volumes
-   * Tag the current state as something like `v0.1.0-infrastructure`
-
-
-
-
+1 .Ziel : V0.2
 TODO in  **V0.2: create an experiment through REST, generate random RNA sequences in Celery, mutate them, store everything in PostgreSQL, and retrieve the results through Django.**
 
 
