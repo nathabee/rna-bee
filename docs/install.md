@@ -270,3 +270,37 @@ Fresh-install and per-service reset procedures are intentionally kept out of thi
 They belong in dedicated operational documentation so that the normal installation path stays short and safe.
 
 Do not use `docker compose down -v` as a generic reset command on RNA Bee: it would remove all project volumes, including PostgreSQL and simulation state.
+
+ 
+## Docker volume backups
+
+RNA Bee stores persistent runtime data in Docker volumes:
+
+```text
+rna-bee_wordpress_data
+rna-bee_mariadb_data
+rna-bee_postgres_data
+rna-bee_redis_data
+rna-bee_simulation_results
+````
+
+Before destructive maintenance, upgrades, or volume resets, back up the relevant persistent data.
+
+In particular:
+
+* MariaDB contains WordPress configuration and content.
+* PostgreSQL contains RNA Bee application and experiment data.
+* `wordpress_data` contains WordPress runtime files and uploads.
+* `simulation_results` contains generated simulation files.
+* Redis is currently persistent but should not be treated as the primary source of application data.
+
+Do not use:
+
+```bash
+docker compose down -v
+```
+
+unless all project volumes are intentionally being deleted.
+
+Application code, the WordPress child theme, the RNA Bee plugin, bootstrap scripts, and Docker configuration are stored in Git and do not require volume backup.
+
